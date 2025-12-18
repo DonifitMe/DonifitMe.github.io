@@ -1,960 +1,1281 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doni Fitriyanto, M.E. | Dosen Ekonomi Islam</title>
-  <meta name="description" content="Profil Doni Fitriyanto, M.E. (FEBI UIN Sayyid Ali Rahmatullah Tulungagung) — portal perkuliahan, riset, dan pengabdian masyarakat." />
-  <meta name="theme-color" content="#0b1220" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Dosen - Doni Fitriyanto, M.E.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Modern Academia Palette */
+            --primary-dark: #0f172a;
+            --primary-blue: #1e40af;
+            --accent-gold: #d97706;
+            --accent-teal: #0d9488;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            
+            /* Animations */
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-duration: 0.3s;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            
+            /* Gradients */
+            --gradient-academic: linear-gradient(135deg, #1e40af 0%, #0d9488 100%);
+            --gradient-gold: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        }
 
-  <style>
-    :root{
-      --bg:#0b1220;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --muted2:rgba(255,255,255,.55);
-      --stroke:rgba(255,255,255,.14);
-      --stroke2:rgba(255,255,255,.22);
-      --accent:#7c3aed;
-      --accentB:#3b82f6;
-      --good:#22c55e;
-      --warn:#f59e0b;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      --radius-xl:22px;
-      --radius-lg:18px;
-      --radius-md:14px;
-      --shadow:0 18px 60px rgba(0,0,0,.45);
-      --shadow2:0 10px 28px rgba(0,0,0,.35);
-      --max:1180px;
+        html {
+            scroll-behavior: smooth;
+        }
 
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family:var(--font);
-      color:var(--text);
-      background:
-        radial-gradient(1000px 520px at 18% 12%, rgba(124,58,237,.26), transparent 60%),
-        radial-gradient(960px 520px at 92% 28%, rgba(34,197,94,.16), transparent 55%),
-        radial-gradient(760px 520px at 55% 110%, rgba(59,130,246,.14), transparent 58%),
-        linear-gradient(180deg, #070b14 0%, #0b1220 52%, #060913 100%);
-      overflow-x:hidden;
-    }
-    a{ color:inherit; text-decoration:none; }
-    a:hover{ text-decoration:underline; text-underline-offset:3px; }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
 
-    .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(11,18,32,.82), rgba(11,18,32,.35));
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.2px;
-    }
-    .dot{
-      width:12px; height:12px; border-radius:999px;
-      background:
-        radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,.2) 30%, transparent 55%),
-        linear-gradient(135deg, var(--accent), var(--accentB));
-      box-shadow:0 0 0 6px rgba(124,58,237,.14);
-    }
-    .nav-links{
-      display:flex; gap:10px; flex-wrap:wrap;
-      font-size:13.8px; color:var(--muted);
-    }
-    .nav-links a{
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid transparent;
-    }
-    .nav-links a:hover{
-      text-decoration:none;
-      color:var(--text);
-      background:rgba(255,255,255,.06);
-      border-color:rgba(255,255,255,.10);
-    }
+        /* Background Animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
 
-    .container{ max-width:var(--max); margin:0 auto; padding:22px 18px 72px; }
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
+            animation: float 20s infinite ease-in-out;
+        }
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--radius-xl);
-      box-shadow:var(--shadow2);
-      overflow:hidden;
-    }
+        .bg-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+            animation-delay: 0s;
+        }
 
-    .hero{
-      margin-top:16px;
-      display:grid;
-      grid-template-columns: 1.18fr .82fr;
-      gap:18px;
-      align-items:stretch;
-    }
+        .bg-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: 100px;
+            left: -100px;
+            animation-delay: 5s;
+        }
 
-    .hero-main{ padding:22px; position:relative; }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      color:rgba(255,255,255,.86);
-      background: rgba(124,58,237,.14);
-      border: 1px solid rgba(124,58,237,.35);
-    }
-    .title{
-      margin:12px 0 6px;
-      font-size: clamp(26px, 3.1vw, 42px);
-      line-height:1.05;
-      letter-spacing:-.7px;
-    }
-    .subtitle{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
-      font-size:15.5px;
-      max-width:70ch;
-    }
+        .bg-circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 10%;
+            animation-delay: 10s;
+        }
 
-    .hero-grid{
-      margin-top:16px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    .mini{
-      padding:14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .mini .k{ color:var(--muted2); font-size:12.5px; margin-bottom:6px; }
-    .mini .v{ font-weight:800; font-size:14.8px; letter-spacing:-.1px; }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(30px) rotate(240deg);
+            }
+        }
 
-    .hero-side{ padding:18px; display:flex; flex-direction:column; gap:12px; }
-    .profile{
-      display:flex; gap:14px; align-items:center;
-      padding:14px; border-radius:18px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .avatar{
-      width:64px; height:64px;
-      border-radius:18px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(255,255,255,.08) 42%, transparent 62%),
-        linear-gradient(135deg, rgba(34,197,94,.85), rgba(59,130,246,.65));
-      border:1px solid rgba(255,255,255,.20);
-      box-shadow:0 14px 40px rgba(0,0,0,.35);
-      flex:0 0 auto;
-    }
-    .profile h2{ margin:0; font-size:16px; line-height:1.2; }
-    .profile p{ margin:4px 0 0; color:var(--muted); font-size:13.5px; line-height:1.45; }
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all var(--transition-duration) var(--transition-smooth);
+        }
 
-    .cta-row{ display:flex; gap:10px; flex-wrap:wrap; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:11px 12px;
-      border-radius:14px;
-      font-weight:700;
-      font-size:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      text-decoration:none !important;
-      transition: transform .08s ease, background .15s ease, border-color .15s ease;
-      cursor:pointer;
-    }
-    .btn:hover{
-      background:rgba(255,255,255,.10);
-      border-color:rgba(255,255,255,.22);
-      transform: translateY(-1px);
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(124,58,237,.85), rgba(59,130,246,.70));
-      border-color: rgba(255,255,255,.18);
-    }
-    .btn.good{
-      background: linear-gradient(135deg, rgba(34,197,94,.82), rgba(16,185,129,.55));
-      border-color: rgba(255,255,255,.16);
-    }
+        .header.scrolled {
+            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.98);
+        }
 
-    section{ margin-top:18px; }
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin-bottom:12px;
-    }
-    .section-head h3{ margin:0; font-size:18px; letter-spacing:-.2px; }
-    .section-head .hint{ margin:0; color:var(--muted2); font-size:13.5px; }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
-    .padded{ padding:18px; }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
 
-    .list{ display:grid; gap:10px; margin:0; padding:0; list-style:none; }
-    .item{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px;
-      border-radius:16px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-    }
-    .pill{
-      display:inline-flex; align-items:center;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      border:1px solid rgba(255,255,255,.14);
-      color:rgba(255,255,255,.86);
-      background:rgba(255,255,255,.06);
-      white-space:nowrap;
-      flex:0 0 auto;
-    }
-    .item h4{ margin:0; font-size:14.5px; line-height:1.35; }
-    .item p{ margin:4px 0 0; color:var(--muted); font-size:13.3px; line-height:1.55; }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-academic);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            transform: rotate(0deg);
+            transition: transform 0.5s var(--transition-smooth);
+        }
 
-    /* Portals */
-    .portal-grid{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:12px;
-    }
-    .portal{
-      padding:14px;
-      border-radius:18px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      display:flex; flex-direction:column; gap:8px;
-      min-height: 120px;
-    }
-    .portal b{ font-size:14.2px; letter-spacing:-.15px; }
-    .portal small{ color:var(--muted); line-height:1.45; }
-    .portal .actions{ margin-top:auto; display:flex; gap:8px; flex-wrap:wrap; }
-    .link{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-size:13px;
-      color:rgba(255,255,255,.88);
-      text-decoration:none !important;
-    }
-    .link:hover{ background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.22); }
+        .logo:hover .logo-icon {
+            transform: rotate(360deg);
+        }
 
-    /* Courses */
-    .course-grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:18px;
-    }
-    details.course{
-      border-radius:var(--radius-xl);
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.04));
-      box-shadow:var(--shadow2);
-      overflow:hidden;
-    }
-    details.course > summary{
-      list-style:none;
-      cursor:pointer;
-      padding:16px 18px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-    }
-    details.course > summary::-webkit-details-marker{ display:none; }
-    .course-title{ display:flex; flex-direction:column; gap:6px; max-width:86%; }
-    .course-title h4{ margin:0; font-size:16px; letter-spacing:-.2px; }
-    .course-title .meta{ display:flex; gap:8px; flex-wrap:wrap; color:var(--muted); font-size:12.8px; }
-    .tag{
-      padding:5px 9px;
-      border-radius:999px;
-      background: rgba(124,58,237,.14);
-      border: 1px solid rgba(124,58,237,.35);
-      color: rgba(255,255,255,.86);
-      font-size: 12px;
-      white-space: nowrap;
-    }
-    .tag.green{ background: rgba(34,197,94,.14); border-color: rgba(34,197,94,.35); }
-    .tag.gray{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+        }
 
-    .chev{
-      flex:0 0 auto;
-      width:38px; height:38px;
-      border-radius:14px;
-      display:grid; place-items:center;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      color:rgba(255,255,255,.85);
-      font-family:var(--mono);
-      user-select:none;
-      transition: transform .12s ease;
-    }
-    details[open] .chev{ transform: rotate(180deg); }
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
 
-    .course-body{ padding:0 18px 18px; border-top:1px solid rgba(255,255,255,.08); }
-    .course-desc{
-      margin:14px 0 12px;
-      color:var(--muted);
-      line-height:1.62;
-      font-size:13.9px;
-    }
-    .resource-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    .res{
-      padding:12px;
-      border-radius:16px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
-      display:flex; flex-direction:column; gap:8px;
-      min-height: 118px;
-    }
-    .res .top{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    .res b{ font-size:13.8px; letter-spacing:-.12px; }
-    .res small{ color:var(--muted2); line-height:1.45; font-size:12.8px; }
-    .res .actions{ margin-top:auto; display:flex; gap:8px; flex-wrap:wrap; }
+        .nav-link {
+            position: relative;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color var(--transition-duration) var(--transition-smooth);
+        }
 
-    .note{
-      margin-top:12px;
-      padding:12px 14px;
-      border-radius:16px;
-      background: rgba(245,158,11,.10);
-      border:1px solid rgba(245,158,11,.25);
-      color: rgba(255,255,255,.86);
-      font-size:13.3px;
-      line-height:1.55;
-    }
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
 
-    footer{
-      margin-top:22px;
-      padding:16px 0 0;
-      color:var(--muted2);
-      font-size:13px;
-      display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-academic);
+            transition: width var(--transition-duration) var(--transition-smooth);
+        }
 
-    @media (max-width: 980px){
-      .hero{ grid-template-columns:1fr; }
-      .hero-grid{ grid-template-columns:1fr; }
-      .grid-2{ grid-template-columns:1fr; }
-      .portal-grid{ grid-template-columns:1fr; }
-      .course-grid{ grid-template-columns:1fr; }
-      .resource-grid{ grid-template-columns:1fr; }
-    }
-  </style>
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-academic);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-duration) var(--transition-smooth);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s var(--transition-smooth) 0.3s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(30, 64, 175, 0.1);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-academic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-duration) var(--transition-smooth);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-academic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .hero-visual {
+            position: relative;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: fadeRight 1s var(--transition-smooth) 0.6s forwards;
+        }
+
+        @keyframes fadeRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-academic);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .profile-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-info p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .profile-details {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            transition: all var(--transition-duration) var(--transition-smooth);
+        }
+
+        .detail-item:hover {
+            background: rgba(30, 64, 175, 0.05);
+            transform: translateX(5px);
+        }
+
+        .detail-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-academic);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-duration) var(--transition-smooth);
+            font-size: 0.875rem;
+        }
+
+        .action-btn.primary {
+            background: var(--gradient-academic);
+            color: white;
+        }
+
+        .action-btn.secondary {
+            background: var(--light-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--card-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all var(--transition-duration) var(--transition-smooth);
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-academic);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        /* Call to Action */
+        .cta {
+            padding: 6rem 2rem;
+            background: var(--gradient-academic);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-duration) var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color var(--transition-duration) var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem;
+            }
+
+            .nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-duration) var(--transition-smooth);
+            }
+
+            .nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 0 1rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            opacity: 0;
+            animation: fadeIn 1s var(--transition-smooth) 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--text-muted);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .wheel {
+            width: 4px;
+            height: 8px;
+            background: var(--text-muted);
+            border-radius: 2px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(20px);
+                opacity: 0;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 20s infinite linear;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>Doni Fitriyanto, M.E.</span>
-      </div>
-      <div class="nav-links">
-        <a href="#tentang">Tentang</a>
-        <a href="#portal">Portal</a>
-        <a href="#mata-kuliah">Perkuliahan</a>
-        <a href="#penelitian">Penelitian</a>
-        <a href="#pengabdian">Pengabdian</a>
-        <a href="#kontak">Kontak</a>
-      </div>
-    </div>
-  </div>
-
-  <main class="container">
-    <!-- HERO -->
-    <div class="hero" id="tentang">
-      <div class="card hero-main">
-        <span class="badge">👨‍🏫 Dosen • Ekonomi Islam • FEBI</span>
-        <h1 class="title">Doni Fitriyanto, M.E.</h1>
-        <p class="subtitle">
-          Dosen <b>Ekonomi Islam</b> di <b>Fakultas Ekonomi dan Bisnis Islam</b>,
-          <b>UIN Sayyid Ali Rahmatullah Tulungagung</b>.
-          Fokus pada pembelajaran berbasis kasus, literatur jurnal, dan penguatan dampak Tridharma
-          (pengajaran, penelitian, pengabdian masyarakat).
-        </p>
-
-        <div class="hero-grid">
-          <div class="mini">
-            <div class="k">Institusi</div>
-            <div class="v">FEBI • UIN SATU Tulungagung</div>
-          </div>
-          <div class="mini">
-            <div class="k">Keilmuan</div>
-            <div class="v">Ekonomi Islam</div>
-          </div>
-          <div class="mini">
-            <div class="k">Fokus</div>
-            <div class="v">Teaching • Research • Community</div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="card hero-side">
-        <div class="profile">
-          <div class="avatar" aria-hidden="true"></div>
-          <div>
-            <h2>Profil Singkat</h2>
-            <p>
-              Dosen Ekonomi Islam (FEBI).<br/>
-              Minat: kebijakan & pembangunan, pemberdayaan ekonomi, mikroekonomi Islam.
-            </p>
-          </div>
-        </div>
-
-        <div class="cta-row">
-          <a class="btn primary" href="#mata-kuliah">📚 Portal Perkuliahan</a>
-          <a class="btn good" href="#kontak">✉️ Hubungi</a>
-          <a class="btn" href="#penelitian">🧪 Riset</a>
-          <a class="btn" href="#pengabdian">🤝 Pengabdian</a>
-        </div>
-
-        <div class="note">
-          <b>Struktur link terbaik (disarankan):</b>
-          Drive (arsip & materi) + Classroom (kelas & penugasan) + Form (submit/kolaborasi) + Calendar (janji bimbingan).
-          Ini rapi, mudah diaudit, dan cocok untuk akun Workspace kampus.
-        </div>
-      </aside>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
     </div>
 
-    <!-- PORTAL TOOLS -->
-    <section id="portal">
-      <div class="section-head">
-        <h3>Portal Utama</h3>
-        <p class="hint">Satu pintu untuk akses cepat (ganti tautannya sesuai akun kampus Anda).</p>
-      </div>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading Portal Akademik...</p>
+    </div>
 
-      <div class="card padded">
-        <div class="portal-grid">
-          <div class="portal">
-            <b>📁 Drive Hub (Master Folder)</b>
-            <small>Semua dokumen resmi per mata kuliah & Tridharma dengan struktur terstandar.</small>
-            <div class="actions">
-              <a class="link" href="#" target="_blank" rel="noopener">Buka Folder</a>
-            </div>
-          </div>
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
 
-          <div class="portal">
-            <b>🏫 Google Classroom</b>
-            <small>Aktivitas kelas: pengumuman, forum, penugasan, penilaian.</small>
-            <div class="actions">
-              <a class="link" href="#" target="_blank" rel="noopener">Masuk Classroom</a>
-            </div>
-          </div>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span class="logo-text">PortalDosen</span>
+            </a>
 
-          <div class="portal">
-            <b>🗓️ Jadwal Konsultasi</b>
-            <small>Appointment schedule untuk bimbingan skripsi / riset / konsultasi akademik.</small>
-            <div class="actions">
-              <a class="link" href="#" target="_blank" rel="noopener">Booking</a>
-            </div>
-          </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
 
-          <div class="portal">
-            <b>🧾 Form Kolaborasi</b>
-            <small>Permintaan kolaborasi, undangan narasumber, atau pendampingan.</small>
-            <div class="actions">
-              <a class="link" href="#" target="_blank" rel="noopener">Isi Form</a>
-            </div>
-          </div>
+            <nav class="nav" id="navMenu">
+                <a href="#home" class="nav-link">Beranda</a>
+                <a href="#profile" class="nav-link">Profil</a>
+                <a href="#features" class="nav-link">Fitur</a>
+                <a href="#portal" class="nav-link">Portal</a>
+                <a href="#research" class="nav-link">Riset</a>
+                <a href="#contact" class="nav-cta">Login Mahasiswa</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="note">
-          <b>Template struktur Drive (rekomendasi):</b><br/>
-          <span style="font-family:var(--mono);">
-            /DoniFitriyanto-ME/<br/>
-            &nbsp;&nbsp;01_PerkuIiahan/<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;[MK] Ekonomi Pembangunan Islam/{00_RPS,01_Materi,02_Tugas,03_UTS,04_UAS,05_Rubrik,06_Nilai,99_Arsip}<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;[MK] Pemberdayaan Ekonomi/{00_RPS,01_Materi,02_Tugas,03_UTS,04_UAS,05_Rubrik,06_Nilai,99_Arsip}<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;[MK] Ekonomi Mikro Islam/{00_RPS,01_Materi,02_Tugas,03_UTS,04_UAS,05_Rubrik,06_Nilai,99_Arsip}<br/>
-            &nbsp;&nbsp;02_Penelitian/{Proposal,Instrumen,Data,Analisis,Manuskrip,Output}<br/>
-            &nbsp;&nbsp;03_Pengabdian/{Mitra,Modul,Pelatihan,Monitoring,Luaran,Publikasi}<br/>
-            &nbsp;&nbsp;99_Templates/{Rubrik,FormatMakalah,Slide,SuratTugas}
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEACHING SUMMARY -->
-    <section>
-      <div class="section-head">
-        <h3>Fokus Pengajaran</h3>
-        <p class="hint">Ringkas, jelas, dan terukur.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card padded">
-          <ul class="list">
-            <li class="item">
-              <span class="pill">🎯</span>
-              <div>
-                <h4>Orientasi pembelajaran</h4>
-                <p>Analitis dan aplikatif: konsep → studi kasus → pembuktian (data/literatur) → rekomendasi kebijakan/aksi.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🧩</span>
-              <div>
-                <h4>Penilaian</h4>
-                <p>Rubrik jelas, tugas berbasis output (policy brief, analisis kasus, review jurnal, presentasi), dan UTS/UAS berbasis kompetensi.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">📚</span>
-              <div>
-                <h4>Literatur</h4>
-                <p>Kombinasi buku ajar, artikel jurnal, serta referensi kebijakan/industri (sesuai kebutuhan mata kuliah).</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card padded">
-          <ul class="list">
-            <li class="item">
-              <span class="pill">🧠</span>
-              <div>
-                <h4>Kompetensi target</h4>
-                <p>Berpikir kritis, argumentasi ilmiah, analisis ekonomi Islam, dan kemampuan menulis akademik yang rapi.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🧭</span>
-              <div>
-                <h4>Etika akademik</h4>
-                <p>Integritas, anti-plagiasi, sitasi yang benar (APA/IEEE sesuai pedoman prodi), dan disiplin timeline.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🧰</span>
-              <div>
-                <h4>Tools</h4>
-                <p>Google Workspace, LMS/Classroom, Form untuk submit, dan Drive sebagai arsip terstruktur.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- COURSES -->
-    <section id="mata-kuliah">
-      <div class="section-head">
-        <h3>Portal Perkuliahan per Mata Kuliah</h3>
-        <p class="hint">RPS • Materi • Tugas • UTS • UAS • Rubrik • Pengumuman</p>
-      </div>
-
-      <div class="course-grid">
-
-        <!-- MK 1 -->
-        <details class="course" open>
-          <summary>
-            <div class="course-title">
-              <h4>Ekonomi Pembangunan Islam</h4>
-              <div class="meta">
-                <span class="tag">Semester: (isi)</span>
-                <span class="tag green">SKS: (isi)</span>
-                <span class="tag gray">Kode: (isi)</span>
-              </div>
-            </div>
-            <div class="chev">⌃</div>
-          </summary>
-          <div class="course-body">
-            <p class="course-desc">
-              Fokus pada teori pembangunan dan aplikasinya dalam perspektif Islam:
-              isu kemiskinan, ketimpangan, instrumen kebijakan, serta peran institusi.
-              Output tugas dapat berupa policy brief / review jurnal / analisis data ringkas.
-            </p>
-
-            <div class="resource-grid">
-              <div class="res">
-                <div class="top"><b>RPS</b><span class="tag gray">Docs/PDF</span></div>
-                <small>Rencana Pembelajaran Semester.</small>
-                <div class="actions">
-                  <a class="link" href="#" target="_blank" rel="noopener">📌 Buka</a>
-                  <a class="link" href="#" target="_blank" rel="noopener">⬇️ Unduh</a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-user-tie"></i>
+                    Dosen Ekonomi Islam • FEBI UIN SATU
                 </div>
-              </div>
-
-              <div class="res">
-                <div class="top"><b>Materi</b><span class="tag gray">Drive</span></div>
-                <small>Slide, handout, bacaan wajib, jurnal.</small>
-                <div class="actions">
-                  <a class="link" href="#" target="_blank" rel="noopener">📁 Folder</a>
-                </div>
-              </div>
-
-              <div class="res">
-                <div class="top"><b>Tugas</b><span class="tag gray">Brief</span></div>
-                <small>Instruksi + rubrik + template.</small>
-                <div class="actions">
-                  <a class="link" href="#" target="_blank" rel="noopener">🧾 Brief</a>
-                  <a class="link" href="#" target="_blank" rel="noopener">✅ Rubrik</a>
-                </div>
-              </div>
-
-              <div class="res">
-                <div class="top"><b>UTS</b><span class="tag gray">Ujian</span></div>
-                <small>Kisi-kisi dan ketentuan.</small>
-                <div class="actions">
-                  <a class="link" href="#" target="_blank" rel="noopener">🧩 Kisi-kisi</a>
-                </div>
-              </div>
-
-              <div class="res">
-                <div class="top"><b>UAS</b><span class="tag gray">Ujian</span></div>
-                <small>Kisi-kisi dan ketentuan.</small>
-                <div class="actions">
-                  <a class="link" href="#" target="_blank" rel="noopener">🧩 Kisi-kisi</a>
-                </div>
-              </div>
-
-              <div class="res">
-                <div class="top"><b>Classroom</b><span class="tag gray">LMS</span></div>
-                <small>Pengumuman, diskusi, submit tugas.</small>
-                <div class="actions">
-                  <a class="link" href="#" target="_blank" rel="noopener">🏫 Masuk</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <!-- MK 2 -->
-        <details class="course">
-          <summary>
-            <div class="course-title">
-              <h4>Pemberdayaan Ekonomi</h4>
-              <div class="meta">
-                <span class="tag">Semester: (isi)</span>
-                <span class="tag green">SKS: (isi)</span>
-                <span class="tag gray">Kode: (isi)</span>
-              </div>
-            </div>
-            <div class="chev">⌃</div>
-          </summary>
-          <div class="course-body">
-            <p class="course-desc">
-              Menekankan desain program pemberdayaan: analisis masalah, pemetaan aset/komunitas,
-              strategi intervensi, monitoring-evaluasi, serta pelaporan berbasis luaran.
-            </p>
-
-            <div class="resource-grid">
-              <div class="res">
-                <div class="top"><b>RPS</b><span class="tag gray">Docs/PDF</span></div>
-                <small>Rencana Pembelajaran Semester.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">📌 Buka</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>Materi</b><span class="tag gray">Drive</span></div>
-                <small>Slide, contoh program, studi kasus.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">📁 Folder</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>Tugas Proyek</b><span class="tag gray">Project</span></div>
-                <small>Proposal program + logframe + rubrik.</small>
-                <div class="actions">
-                  <a class="link" href="#" target="_blank" rel="noopener">🧾 Brief</a>
-                  <a class="link" href="#" target="_blank" rel="noopener">✅ Rubrik</a>
-                </div>
-              </div>
-              <div class="res">
-                <div class="top"><b>UTS</b><span class="tag gray">Ujian</span></div>
-                <small>Kisi-kisi dan ketentuan.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">🧩 Kisi-kisi</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>UAS</b><span class="tag gray">Ujian</span></div>
-                <small>Kisi-kisi dan ketentuan.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">🧩 Kisi-kisi</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>Classroom</b><span class="tag gray">LMS</span></div>
-                <small>Pengumuman, diskusi, submit tugas.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">🏫 Masuk</a></div>
-              </div>
-            </div>
-          </div>
-        </details>
-
-        <!-- MK 3 -->
-        <details class="course">
-          <summary>
-            <div class="course-title">
-              <h4>Ekonomi Mikro Islam</h4>
-              <div class="meta">
-                <span class="tag">Semester: (isi)</span>
-                <span class="tag green">SKS: (isi)</span>
-                <span class="tag gray">Kode: (isi)</span>
-              </div>
-            </div>
-            <div class="chev">⌃</div>
-          </summary>
-          <div class="course-body">
-            <p class="course-desc">
-              Fokus pada perilaku konsumen-produsen dalam perspektif Islam: nilai, preferensi,
-              mekanisme pasar, serta implikasi kebijakan dan etika muamalah. Cocok dengan latihan
-              analisis kasus dan soal numerik terstruktur.
-            </p>
-
-            <div class="resource-grid">
-              <div class="res">
-                <div class="top"><b>RPS</b><span class="tag gray">Docs/PDF</span></div>
-                <small>Rencana Pembelajaran Semester.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">📌 Buka</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>Materi</b><span class="tag gray">Drive</span></div>
-                <small>Slide, latihan, bacaan.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">📁 Folder</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>Latihan & Tugas</b><span class="tag gray">Practice</span></div>
-                <small>Problem set + rubrik.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">🧾 Brief</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>UTS</b><span class="tag gray">Ujian</span></div>
-                <small>Kisi-kisi dan ketentuan.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">🧩 Kisi-kisi</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>UAS</b><span class="tag gray">Ujian</span></div>
-                <small>Kisi-kisi dan ketentuan.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">🧩 Kisi-kisi</a></div>
-              </div>
-              <div class="res">
-                <div class="top"><b>Classroom</b><span class="tag gray">LMS</span></div>
-                <small>Pengumuman, diskusi, submit tugas.</small>
-                <div class="actions"><a class="link" href="#" target="_blank" rel="noopener">🏫 Masuk</a></div>
-              </div>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section id="penelitian">
-      <div class="section-head">
-        <h3>Penelitian</h3>
-        <p class="hint">Tampilkan fokus riset + output + peluang kolaborasi.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card padded">
-          <h3 style="margin:0 0 10px;">Arah Riset</h3>
-          <ul class="list">
-            <li class="item">
-              <span class="pill">🧭</span>
-              <div>
-                <h4>Ekonomi pembangunan & kebijakan</h4>
-                <p>Isu kemiskinan, ketimpangan, instrumen pembangunan, dan dampaknya pada kesejahteraan.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🕌</span>
-              <div>
-                <h4>Ekonomi Islam terapan</h4>
-                <p>Instrumen syariah, perilaku ekonomi, dan tata kelola kelembagaan dalam perspektif Islam.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">📊</span>
-              <div>
-                <h4>Metode & pendekatan</h4>
-                <p>Kuantitatif (mis. regresi/panel/SEM-PLS) dan kualitatif (studi kasus, evaluasi program), sesuai kebutuhan topik.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card padded">
-          <h3 style="margin:0 0 10px;">Output & Link</h3>
-          <ul class="list">
-            <li class="item">
-              <span class="pill">🔎</span>
-              <div>
-                <h4>Google Scholar / SINTA / ORCID</h4>
-                <p>
-                  <a href="#" target="_blank" rel="noopener">Google Scholar</a> •
-                  <a href="#" target="_blank" rel="noopener">SINTA</a> •
-                  <a href="#" target="_blank" rel="noopener">ORCID</a>
+                
+                <h1 class="hero-title">Doni Fitriyanto, M.E.</h1>
+                
+                <p class="hero-subtitle">
+                    Selamat datang di portal akademik saya. Sebagai dosen Ekonomi Islam di 
+                    Fakultas Ekonomi dan Bisnis Islam UIN Sayyid Ali Rahmatullah Tulungagung, 
+                    saya berkomitmen untuk mengintegrasikan keunggulan akademik dengan dampak sosial 
+                    melalui pengajaran, penelitian, dan pengabdian masyarakat.
                 </p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🧪</span>
-              <div>
-                <h4>Riset berjalan (folder)</h4>
-                <p>Proposal, instrumen, data, analisis, manuskrip. <a href="#" target="_blank" rel="noopener">Buka Drive</a></p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🤝</span>
-              <div>
-                <h4>Kolaborasi riset</h4>
-                <p>Ajukan kolaborasi lewat form. <a href="#" target="_blank" rel="noopener">Isi Form</a></p>
-              </div>
-            </li>
-          </ul>
 
-          <div class="note">
-            <b>Yang biasanya paling kuat untuk personal branding riset:</b> 3–5 topik fokus + 3 publikasi terbaik + 1–2 proyek berjalan + “open for collaboration”.
-          </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Tahun Mengajar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Publikasi</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Mahasiswa</div>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <span>Scroll untuk melanjutkan</span>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            DF
+                        </div>
+                        <div class="profile-info">
+                            <h2>Doni Fitriyanto, M.E.</h2>
+                            <p>Dosen Ekonomi Islam • Peneliti • Konsultan</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div>
+                                <strong>Institusi</strong>
+                                <p>FEBI UIN SATU Tulungagung</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <strong>Keahlian</strong>
+                                <p>Ekonomi Pembangunan Islam</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div>
+                                <strong>Fokus Riset</strong>
+                                <p>Ekonomi Islam & Pemberdayaan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <button class="action-btn primary" onclick="enterPortal()">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Masuk Portal
+                        </button>
+                        <button class="action-btn secondary" onclick="scrollToSection('features')">
+                            <i class="fas fa-info-circle"></i>
+                            Lebih Lanjut
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- COMMUNITY SERVICE -->
-    <section id="pengabdian">
-      <div class="section-head">
-        <h3>Pengabdian Masyarakat</h3>
-        <p class="hint">Tunjukkan dampak, mitra, dan luaran yang bisa diverifikasi.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card padded">
-          <h3 style="margin:0 0 10px;">Fokus Program</h3>
-          <ul class="list">
-            <li class="item">
-              <span class="pill">🏘️</span>
-              <div>
-                <h4>Pemberdayaan ekonomi komunitas</h4>
-                <p>Pendampingan UMKM/kelompok masyarakat: tata kelola, literasi keuangan, dan strategi penguatan usaha.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🧾</span>
-              <div>
-                <h4>Pelatihan & modul</h4>
-                <p>Modul pelatihan, SOP, template pencatatan, dan monitoring-evaluasi sederhana untuk mitra.</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">📌</span>
-              <div>
-                <h4>Luaran</h4>
-                <p>Dokumentasi kegiatan, laporan, publikasi pengabdian, dan (bila ada) produk/dokumen implementatif.</p>
-              </div>
-            </li>
-          </ul>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <h2 class="section-title">Portal Akademik Terpadu</h2>
+            <p class="section-subtitle">
+                Satu platform untuk semua kebutuhan akademik, dari pengajaran hingga kolaborasi penelitian
+            </p>
         </div>
 
-        <div class="card padded">
-          <h3 style="margin:0 0 10px;">Dokumentasi & Link</h3>
-          <ul class="list">
-            <li class="item">
-              <span class="pill">📂</span>
-              <div>
-                <h4>Folder Pengabdian (Drive)</h4>
-                <p>Dokumen mitra, modul, laporan, luaran. <a href="#" target="_blank" rel="noopener">Buka Drive</a></p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🧾</span>
-              <div>
-                <h4>Form Permohonan Pendampingan</h4>
-                <p>Untuk lembaga/komunitas yang ingin didampingi. <a href="#" target="_blank" rel="noopener">Isi Form</a></p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">📸</span>
-              <div>
-                <h4>Galeri Kegiatan</h4>
-                <p>Dokumentasi foto/video ringkas. <a href="#" target="_blank" rel="noopener">Buka Galeri</a></p>
-              </div>
-            </li>
-          </ul>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Sistem Pembelajaran Digital</h3>
+                <p>
+                    Akses materi kuliah, tugas, dan ujian online yang terintegrasi. 
+                    Platform pembelajaran modern dengan fitur diskusi dan penilaian otomatis.
+                </p>
+            </div>
 
-          <div class="note">
-            <b>Format dampak yang disarankan:</b> “Mitra • Masalah • Intervensi • Output • Outcome • Bukti (link)”.
-          </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Materi Perkuliahan</h3>
+                <p>
+                    RPS lengkap, slide presentasi, bacaan wajib, dan referensi terkini 
+                    untuk setiap mata kuliah yang diampu.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>Kolaborasi Riset</h3>
+                <p>
+                    Portal untuk berbagi penelitian, publikasi, dan peluang kolaborasi 
+                    dengan akademisi dan praktisi.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h3>Pengabdian Masyarakat</h3>
+                <p>
+                    Dokumentasi dan informasi tentang program pengabdian masyarakat, 
+                    pelatihan, dan pendampingan komunitas.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Manajemen Jadwal</h3>
+                <p>
+                    Sistem penjadwalan untuk konsultasi, bimbingan skripsi, dan kegiatan 
+                    akademik lainnya.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <h3>Formulir Digital</h3>
+                <p>
+                    Pengumpulan tugas, permohonan bimbingan, dan formulir administrasi 
+                    akademik secara online.
+                </p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="kontak">
-      <div class="section-head">
-        <h3>Kontak</h3>
-        <p class="hint">Jalur komunikasi profesional dan terstruktur.</p>
-      </div>
+    <!-- Call to Action -->
+    <section class="cta" id="portal">
+        <div class="cta-content">
+            <h2 class="cta-title">Siap Mengakses Portal?</h2>
+            <p>
+                Masuk ke portal lengkap untuk mengakses semua fitur yang tersedia. 
+                Mahasiswa dapat mengakses materi kuliah, sedangkan mitra dapat mengajukan kolaborasi.
+            </p>
 
-      <div class="grid-2">
-        <div class="card padded">
-          <h3 style="margin:0 0 10px;">Hubungi</h3>
-          <ul class="list">
-            <li class="item">
-              <span class="pill">✉️</span>
-              <div>
-                <h4>Email</h4>
-                <p><a href="mailto:emailanda@uinsatu.ac.id">emailanda@uinsatu.ac.id</a> <span style="color:var(--muted2)">(ganti)</span></p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🏛️</span>
-              <div>
-                <h4>Institusi</h4>
-                <p>FEBI • UIN Sayyid Ali Rahmatullah Tulungagung</p>
-              </div>
-            </li>
-            <li class="item">
-              <span class="pill">🗓️</span>
-              <div>
-                <h4>Jadwal Konsultasi</h4>
-                <p><a href="#" target="_blank" rel="noopener">Booking via Google Calendar</a></p>
-              </div>
-            </li>
-          </ul>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary" onclick="enterPortal()">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Masuk Portal Lengkap
+                </a>
+                <a href="#features" class="btn btn-outline">
+                    <i class="fas fa-info-circle"></i>
+                    Pelajari Fitur Lainnya
+                </a>
+            </div>
         </div>
-
-        <div class="card padded">
-          <h3 style="margin:0 0 10px;">Tautan Penting</h3>
-          <div class="cta-row" style="margin-top:10px;">
-            <a class="btn primary" href="#" target="_blank" rel="noopener">📁 Drive Hub</a>
-            <a class="btn" href="#" target="_blank" rel="noopener">🏫 Classroom</a>
-            <a class="btn good" href="#" target="_blank" rel="noopener">🧾 Form Kolaborasi</a>
-          </div>
-
-          <div class="note" style="margin-top:12px;">
-            <b>Catatan akses:</b> Jika materi untuk publik, gunakan “Anyone with the link (View)”.
-            Jika khusus mahasiswa, gunakan pembatasan domain kampus.
-          </div>
-        </div>
-      </div>
     </section>
 
-    <footer>
-      <div>© <span id="year">2025</span> • Doni Fitriyanto, M.E. • FEBI UIN SATU Tulungagung</div>
-      <div style="color:rgba(255,255,255,.45)">HTML + CSS (1 file) • Siap di-host (GitHub Pages / Hosting kampus)</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Portal Dosen</h3>
+                <p>
+                    Platform akademik terintegrasi untuk mendukung Tridharma Perguruan Tinggi: 
+                    pengajaran, penelitian, dan pengabdian masyarakat.
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Akses Cepat</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#profile">Profil Dosen</a></li>
+                    <li><a href="#features">Fitur Portal</a></li>
+                    <li><a href="#portal">Login Mahasiswa</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:doni.fitriyanto@uinsatu.ac.id">Email Institusi</a></li>
+                    <li><a href="#">Google Scholar</a></li>
+                    <li><a href="#">SINTA</a></li>
+                    <li><a href="#">ORCID</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Lokasi</h3>
+                <p>
+                    Fakultas Ekonomi dan Bisnis Islam<br>
+                    UIN Sayyid Ali Rahmatullah Tulungagung<br>
+                    Jawa Timur, Indonesia
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="currentYear">2024</span> Doni Fitriyanto, M.E. • FEBI UIN SATU Tulungagung</p>
+            <p style="margin-top: 0.5rem;">Portal Akademik Modern • Dibangun dengan HTML, CSS, dan JavaScript</p>
+        </div>
     </footer>
-  </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <script>
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen after 1.5 seconds
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1500);
+
+            // Create particles
+            createParticles();
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Initialize mobile menu
+            initMobileMenu();
+            
+            // Initialize scroll effects
+            initScrollEffects();
+        });
+
+        // Mobile Menu Toggle
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+        }
+
+        // Scroll Effects
+        function initScrollEffects() {
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', () => {
+                // Header shadow on scroll
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                // Animate elements on scroll
+                animateOnScroll();
+            });
+        }
+
+        // Animate elements when they come into view
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.feature-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random animation delay
+                particle.style.animationDelay = `${Math.random() * 20}s`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.5;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Enter portal function
+        function enterPortal() {
+            // Show loading animation
+            const loading = document.getElementById('loading');
+            loading.classList.remove('hidden');
+            loading.innerHTML = `
+                <div class="loading-spinner"></div>
+                <p>Membuka Portal Akademik Lengkap...</p>
+            `;
+            
+            // Simulate portal loading
+            setTimeout(() => {
+                // In a real implementation, this would redirect to the main portal page
+                alert('Portal akademik lengkap akan dibuka. Dalam implementasi nyata, ini akan mengarahkan ke halaman portal utama.');
+                // window.location.href = 'portal-utama.html'; // Uncomment for actual redirect
+                
+                // Hide loading
+                loading.classList.add('hidden');
+                loading.innerHTML = `
+                    <div class="loading-spinner"></div>
+                    <p>Loading Portal Akademik...</p>
+                `;
+            }, 2000);
+        }
+
+        // Initialize feature card animations
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
 </body>
 </html>
